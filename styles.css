@@ -1,0 +1,217 @@
+* {
+    font-family: FreeMono, monospace;
+}
+
+
+
+:root {
+    --body-background:              #c4b8949c;
+    --header-background:            #2a4007ad;
+    --header-font:                  #e3dfd3;
+    --checkbox-background:          #2a400769;
+    --checkbox-font:                #e3dfd3;
+    --checkbox-button-background:   #2a400782;
+    --checkbox-button-font:         #ffffff;
+    --searchBar-font:               #000000;
+    --item-border:                  #ffffff;
+    --content-background:           #ffffff5e;
+    --noResult:                     #ff0051;
+    --term-button-background:       #2a4007b5;
+    --term-button-background-focus: #717C5F;
+    --term-button-font:             #ebe0bf;
+    --term-button-font-hover:       #ffffff;
+    --term-button-background-hover: #2a40079f;
+    --shadow: #0000008e;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--body-background);
+}
+
+header {
+    background-color: var(--header-background);
+    color: var(--header-font);
+    padding: 0.5em 0;
+    text-align: center;
+    box-shadow: 2px 2px 2px var(--shadow);
+}
+
+nav div { /* linha das checkbox */
+    background-color: var(--checkbox-background);
+    overflow: hidden;
+    color: var(--checkbox-font);
+    padding: 0;
+    text-align: center;
+    margin: 0;
+    list-style: none;
+    box-shadow: 2px 2px 2px var(--shadow);
+}
+
+nav div label {
+    display: inline;
+    padding: 20px;
+    background-color: #2a400726;
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px var(--shadow);
+}
+
+/* pra tela menores */
+@media (max-width: 768px) {
+    nav div {
+        padding: 5px; /* Reduz o padding para maior compatibilidade */
+    }
+
+    nav div label {
+        padding: 5px; /* Reduz o padding dos labels */
+        font-size: 14px; /* Ajusta o tamanho da fonte */
+        box-shadow: none;
+        background-color: none;
+    }
+}
+
+/* pra tela muito pequenas */
+@media (max-width: 480px) {
+    nav div {
+        flex-direction: column; /* alinha os itens verticalmente */
+        padding: 5px; /* reduz ainda mais o padding */
+    }
+
+    nav div label {
+        padding: 10px; /* reduz o padding dos labels */
+        font-size: 12px; /* ajusta o tamanho da fonte */
+        background-color: none;
+        box-shadow: none;
+    }
+}
+
+nav .button { /* mostrar todos */
+    background-color: var(--checkbox-button-background);
+    border: none;
+    border-radius: 3px; 
+    cursor: pointer;
+    box-shadow: 2px 2px 2px var(--shadow);
+    color: var(--checkbox-button-font);
+    transition: transform 0.25s ease; /* dá a possibilidade de aumentar gradativamente o botão */
+}
+
+nav .button:hover {
+    transform: scale(1.015); /* aumenta gradativamente ao passar o mouse por cima */
+    outline: none; /* Remove o contorno ao focar ou passar o mouse */
+}
+
+nav #searchBar {
+    margin-top: 10px; /* distância em cima da barra */
+    padding: 10px; /* tamanho da barra */
+    width: 75%; /* quanto que a barra ocupa na tela horizonltalmente */
+    margin-left: 10%; /* espaço na esqueda */
+    color: var(--searchBar-font);
+    border-radius: 5px;
+    font-size: large;
+    box-shadow: 4px 4px 4px var(--shadow);
+    transition: transform 0.25s ease;
+}
+
+nav #searchBar:hover {
+    transform: scale(1.015);
+}
+
+main {
+    padding: 20px;
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* espaço entre os itens */
+    /* align-items: center; com ele, quando um termo abre, o do lado se mantém fechado mas no meio do aberto  */
+}
+
+.item {
+    background-color: #ffffff00; 
+    padding: 20px; 
+    border-radius: 5px;
+    border-color: var(--item-border);
+    flex: 1 1 calc(33.333% - 20px); /* cada termo ocupa um terço da linha com espaçamento de 20px */
+    box-sizing: border-box;
+    display: none; /* termos não clicados inicialmente */
+}
+
+.content { 
+    display: none;
+    margin-top: 8px;
+    padding: 10px;
+    background-color: var(--content-background); 
+    border-radius: 8px; 
+    text-align: center; /* justificar vídeo e descrição*/
+    box-shadow: 2px 2px 2px var(--shadow);
+}
+
+.category-checkboxes {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    height: 3em;
+    align-content: center;
+                
+}
+
+.category-checkboxes label {
+    font-size: 1em;
+    width:20em;
+    padding: 10px; /* para aumentar a área de seleção (problema que ocorre em celulares, principalmente) */
+            
+}
+
+input[type="checkbox"] { /* tamanho da checkbox das categorias */
+    width: 15px;
+    height: 15px;
+    transition: transform 0.3s ease;
+}
+
+input[type="checkbox"]:hover {
+    transform: scale(1.15);
+}
+
+#noResultsMessage {
+    color:var(--noResult);
+    font-size: 1.5em;
+    text-align: center;
+    align-items: center;
+        
+}
+
+.term-button {
+    box-shadow: 5px 5px 5px var(--shadow);
+    background-color: var(--term-button-background);
+    color: var(--term-button-font);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    text-align: center;
+    width: 100%; /* sem ele, o botão variaria conforme o que está escrito nele*/
+    display: block;
+    margin-bottom: 10px;
+    transition: transform 0.25s ease; /* dá a possibilidade de aumentar gradativamente o botão */
+}
+
+.term-button:focus {
+    outline: none;
+    background-color: var(--term-button-background-focus);
+    transform: scale(1.05); /* mantém botão maior ao clicar */
+            
+}
+
+.term-button:hover {
+    background-color: var(--term-button-background-hover);
+    transform: scale(1.05); /* aumenta gradativamente ao passar o mouse por cima */
+    color: var(--term-button-font-hover);
+}
+
+.video {
+    height: 26rem;
+}

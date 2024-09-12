@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinalário Químico</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="icon" href="icon/LOGO-BRANCA.ico">
+</head>
+<body onload="resetFilters()">
+    <header>
+        <h1 class="title">Termos Químicos</h1>
+    </header>
+
+    <nav>
+        <div class="category-checkboxes">
+            <label><input type="checkbox" value="Org" onchange="filterItems()">Orgânica</label>
+            <label><input type="checkbox" value="Ino" onchange="filterItems()">Inorgânica</label>
+            <label><input type="checkbox" value="Lab" onchange="filterItems()">Laboratório</label>
+            <label><input type="checkbox" value="Ele" onchange="filterItems()">Elementos</label>
+            <label><input type="checkbox" value="QGe" onchange="filterItems()">Química Geral</label>
+            <button class="button" onclick="resetFilters()">Mostrar Todas</button>
+        </div>
+        <input type="text" id="searchBar" oninput="searchItems()" placeholder="Pesquisar termo desejado">
+    </nav>
+    <main>
+        <div class="items" id="itemsContainer">
+        </div>
+        <div id="noResultsMessage" style="display: none;">Não encontrado</div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="profile-container">
+                <div class="profile">
+                    <h6>Jênifer Arnhold</h6>
+                    <img src="footer img/JA.jpg" alt="Foto 1">
+                    <div class="social-links">
+                        <!-- <a href="https://linkedin.com/in/perfil1" target="_blank">LinkedIn</a> -->
+                    </div>
+                </div>
+                <div class="profile">
+                    <h6>Josué Acker</h6>
+                    <img src="footer img/JAF.jpg" alt="Foto 2">
+                    <div class="social-links">
+                        <!-- <a href="https://linkedin.com/in/perfil2" target="_blank">LinkedIn</a> -->
+                    </div>
+                </div>
+                <div class="profile">
+                    <h6>Mariana Toreti</h6>
+                    <img src="footer img/MLLT.jpg" alt="Foto 3">
+                    <div class="social-links">
+                        <!-- <a href="https://linkedin.com/in/perfil3" target="_blank">LinkedIn</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-text">
+                <p>&copy; Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!-- no git bash: (1) git status (2) git add . (3) git commit -m "descrição da alteração" (4) git push origin main -->>
